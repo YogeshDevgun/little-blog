@@ -20,6 +20,13 @@ export default function(state = {}, action){
       //key value to pick value out of object.
       return _.mapKeys(action.payload.data, 'id')
 
+    case DELETE_POST:
+      //Check state, if it have key ID then omit and returns new state object
+      return _.omit(state, action.payload);
+
+      //If return has to be done through array reject has to be written
+      // return _.reject(state, post => post === action.payload);
+
     default:
       return state;
   }
